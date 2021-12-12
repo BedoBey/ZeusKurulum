@@ -1,0 +1,1422 @@
+#---------RENK KODLARI-----------#
+##################################
+sari="\033[1;33m"                #
+mavi="\033[1;36m"                #
+kirmizi="\033[1;31m"             #
+yesil="\033[0;32m"               #
+f="\033[0m"                      #
+mavik="\033[36m"                 #
+##################################
+
+scname="ZeusKurulum"
+surum="10.5"
+server="indirsc.tk"
+tssurum="3.0.13.8"
+gsurum="1.0.0"
+gssurum="3.5.1"
+ggssurum="3.8.0"
+sinusbotsurum="Alpha"
+jts3surum="5.5.4"
+audiosurum="0.9.1"
+main_server_connectionlost="\033[1;33mAna sunucuya bağlanamıyor,Lütfen Scripti Yeniden Başlatmayı Deneyin.\033[0m"
+
+function ana_secenek_jts3servermod_baslat(){
+clear
+echo -e -n "\033[1;36mBaşlatmak İstediğiniz Port: \033[0m"
+read botport
+cd /opt/jts3servermod/bot$botport
+screen -d -m -S bot$botport java -mx30M -jar JTS3ServerMod.jar
+echo -e "\033[1;37m$botport ~ portlu JTS3ServerMod botu başlatıldı.\033[0m"
+}
+
+function ana_secenek_jts3servermod_durdur(){
+clear
+echo -e -n "\033[1;36mDurdurmak İstediğiniz Port: \033[0m"
+read botport
+screen -S bot$botport -X quit
+echo -e "\033[1;37m$botport ~ portlu JTS3ServerMod botu durduruldu.\033[0m"
+}
+
+function ana_secenek_jts3servermod_ybaslat(){
+clear
+echo -e -n "\033[1;36mYeniden Başlatmak İstediğiniz Port: \033[0m"
+read botport
+screen -S bot$botport -X quit
+cd /opt/jts3servermod/bot$botport
+screen -d -m -S bot$botport java -mx30M -jar JTS3ServerMod.jar
+echo -e "\033[1;37m$botport ~ portlu JTS3ServerMod botu yeniden başlatıldı.\033[0m"
+}
+
+function ana_secenek_jts3servermod_botsil(){
+clear
+echo -e -n "\033[1;36mSilmek İstediğiniz Port: \033[0m"
+read botport
+screen -S bot$botport -X quit
+rm -rf /opt/jts3servermod/bot$botport
+echo -e "\033[1;37m$botport ~ portlu JTS3ServerMod botu silindi.\033[0m"
+}
+
+function ana_secenek_jt3servermod(){
+clear
+
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m             \033[1;35mJTS3ServerMod - Seçenekler\033[0m              \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mBaşlat                                           \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mDurdur                                           \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mYeniden Başlat                                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m4\033[1;37m) \033[1;36mSil                                              \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read jtssec
+
+case $jtssec in
+ 1)
+ana_secenek_jts3servermod_baslat
+ ;;
+ 2)
+ana_secenek_jts3servermod_durdur 
+ ;;
+ 3)
+ana_secenek_jts3servermod_ybaslat
+ ;;
+ 4)
+ana_secenek_jts3servermod_botsil
+ ;;
+ 0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+
+}
+
+function temelbilesen_audio(){
+clear
+echo -e "\033[1;33m#########################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                       #\033[1;32m \033[0m"
+echo -e "\033[1;33m#              \033[1;31mİşletim Sisteminizi Seçin                \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                       #\033[1;33m \033[0m"
+echo -e "\033[1;33m#########################################################\033[1;32m \033[0m"
+echo -e ""
+echo -e "\033[1;37m(\033[1;31m1\033[1;37m) \033[1;36mCentos\033[0m"
+echo -e "\033[1;37m(\033[1;31m2\033[1;37m) \033[1;36mUbuntu\033[0m"
+echo -e "\033[1;37m(\033[1;31m3\033[1;37m) \033[1;36mDebain\033[0m"
+echo -e ""
+
+echo -n -e "\033[1;37mCevap: \033[0m"
+read updaaudio
+
+case $updaaudio in
+
+
+
+ 1)
+clear
+rpm --import "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+su -c 'curl https://download.mono-project.com/repo/centos7-stable.repo | tee /etc/yum.repos.d/mono-centos7-stable.repo'
+sudo yum install epel-release -y
+sudo yum update -y
+sleep 1
+sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+sleep 1
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+sudo yum update
+sleep 1
+yum install opus-devel
+sleep 0.5
+yum install -y mono-complete
+sleep 1
+yum install mono-devel
+sleep 1
+yum install ffmpeg
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+
+
+
+
+ 2)
+ clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                      \033[1;31mİşletim Sisteminizi Sürümü Seçin           \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e ""
+echo -e "\033[1;37m(\033[1;31m1\033[1;37m) \033[1;36mUbuntu 18.04\033[0m"
+echo -e "\033[1;37m(\033[1;31m2\033[1;37m) \033[1;36mUbuntu 16.04\033[0m"
+echo -e "\033[1;37m(\033[1;31m3\033[1;37m) \033[1;36mUbuntu 14.04\033[0m"
+echo -e ""
+
+echo -n -e "\033[1;37mCevap: \033[0m"
+read updaaudioubuntu
+
+case $updaaudioubuntu in
+1)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sleep 1
+sudo apt-get install opus-devel
+sleep 1
+apt-get install mono-complete
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+2)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sleep 1
+sudo apt-get install opus-devel
+sleep 1
+apt-get install mono-complete
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+3)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo "deb https://download.mono-project.com/repo/ubuntu stable-trusty main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sleep 1
+sudo apt-get install opus-devel
+sleep 1
+apt-get install mono-complete
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+;;
+
+
+
+3)
+ clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                      \033[1;31mİşletim Sisteminizi Sürümü Seçin           \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e ""
+echo -e "\033[1;37m(\033[1;31m1\033[1;37m) \033[1;36mDebian 9\033[0m"
+echo -e "\033[1;37m(\033[1;31m2\033[1;37m) \033[1;36mDebian 8\033[0m"
+echo -e ""
+
+echo -n -e "\033[1;37mCevap: \033[0m"
+read updaaudiodebain
+
+case $updaaudiodebain in
+1)
+sudo apt install apt-transport-https dirmngr
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/debian stable-stretch main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sleep 1
+sudo apt-get install opus-devel
+sleep 1
+apt-get install mono-complete
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+2)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo "deb https://download.mono-project.com/repo/debian stable-jessie main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sleep 1
+sudo apt-get install opus-devel
+sleep 1
+apt-get install mono-complete
+cd /usr/local/bin
+mkdir temelbilesen-installed_audio
+ana_kurulum_audiobot
+;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+;;
+0)
+clear
+exit
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+}
+function ana_temelbilesen(){
+clear
+echo "Temel bileşenler 3 saniye içinde kurulmaya başlayacak"
+sleep 3
+
+ if cat /etc/*release | grep ^NAME | grep CentOS; then
+yum -y update
+yum -y install screen
+yum -y install java
+yum -y install wget
+yum -y install sudo
+yum -y install nano
+yum -y install unzip
+sleep 1
+sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+sleep 1
+yum install libopus-dev ffmpeg libc6-dev
+yum python-pip
+yum install mono-devel
+yum update x11vnc xvfb libxcursor1 ca-certificates bzip2 libnss3 libegl1-mesa x11-xkb-utils libasound2 -y
+yum install -y firefox xorg-x11-server-Xvfb x11vnc xinit xvfb libxcursor1 ca-certificates bzip2 curl libglib2.0-0 xorg-x11-server-Xorg vnc-server gnome-desktop xorg-x11-xinit xterm gnome-applets gnome-session gnome-themes gnome-panel gdm firefox dbus-x11 libstdc++-devel.i686 glibc-devel.i686
+rm -rf /usr/local/bin/youtube-dl
+cd /usr/local/bin
+wget -q --no-check-certificate https://yt-dl.org/downloads/latest/youtube-dl
+sudo chmod a+rx youtube-dl
+cd /opt
+mkdir sinusbot
+cd /opt/sinusbot
+mkdir ts3client
+cd /opt/sinusbot/ts3client
+wget -q --no-check-certificate https://$server/script/sinusbot/TeamSpeak3-Client-linux_amd64-3.1.10.run
+echo -e "\033[1;32mİlk olarak \033[1;34mENTER \033[1;32mbasın \033[1;34mQ \033[1;32mbasın \033[1;34mY \033[1;32mbasın \033[1;34mENTER \033[1;32mbasın \033[0m" 
+chmod +x TeamSpeak3-Client-linux_amd64-3.1.10.run
+./TeamSpeak3-Client-linux_amd64-3.1.10.run
+cd /usr/local/bin
+mkdir temelbilesen-installed
+ elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
+apt-get update -y
+apt-get install wget -y
+apt-get install sudo -y
+apt-get install java
+apt-get install nano
+sudo apt install mono-devel
+sleep 1
+sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+sleep 1
+apt-get install libopus-dev ffmpeg libc6-dev
+apt-get python-pip
+sudo apt install x11vnc xvfb libxcursor1 ca-certificates bzip2 libnss3 libegl1-mesa x11-xkb-utils libasound2 -y
+sudo update-ca-certificates -y
+sudo apt-get install libglib2.0-0 -y 
+sudo apt-get install screen -y
+sudo apt-get install youtube-dl -y 
+sudo youtube-dl --update 
+rm -rf /usr/local/bin/youtube-dl
+cd /usr/local/bin
+wget -q --no-check-certificate https://yt-dl.org/downloads/latest/youtube-dl
+sudo chmod a+rx youtube-dl
+sudo apt-get install default-jre -y
+sudo apt-get install openjdk-7-jre -y
+sudo update-ca-certificates -y
+sudo apt-get install lib32stdc++6 -y
+sudo apt-get install lib32z1 -y
+sudo apt-get install lib32ncursesw5 -y
+wget -q --no-check-certificate http://ftp.us.debian.org/debian/pool/main/r/readline5/libreadline5_5.2-7_ia64.deb
+dpkg -i libreadline5_5.2-7_ia64.deb
+rm libreadline5_5.2-7_ia64.deb
+apt-get install unzip -y
+cd /opt
+mkdir sinusbot
+cd /opt/sinusbot
+mkdir ts3client
+cd /opt/sinusbot/ts3client
+wget -q --no-check-certificate https://$server/script/sinusbot/TeamSpeak3-Client-linux_amd64-3.1.10.run
+echo -e "\033[1;32mİlk olarak \033[1;34mENTER \033[1;32mbasın \033[1;34mQ \033[1;32mbasın \033[1;34mY \033[1;32mbasın \033[1;34mENTER \033[1;32mbasın \033[0m" 
+cd /opt/sinusbot/ts3client
+chmod +x TeamSpeak3-Client-linux_amd64-3.1.10.run
+./TeamSpeak3-Client-linux_amd64-3.1.10.run
+cd /usr/local/bin
+mkdir temelbilesen-installed    
+ elif cat /etc/*release | grep ^NAME | grep Debian ; then
+apt-get update -y
+apt-get install wget -y
+apt-get install sudo -y
+apt-get install java -y
+apt-get install nano -y
+sleep 1
+sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+sleep 1
+sudo apt install mono-devel
+apt-get install ffmpeg libc6-dev
+apt-get install libopus-dev
+apt-get python-pip
+sudo apt install x11vnc xvfb libxcursor1 ca-certificates bzip2 libnss3 libegl1-mesa x11-xkb-utils libasound2 -y
+sudo update-ca-certificates -y
+sudo apt-get install libglib2.0-0 -y 
+sudo apt-get install screen -y
+sudo apt-get install youtube-dl -y 
+sudo youtube-dl --update 
+rm -rf /usr/local/bin/youtube-dl
+cd /usr/local/bin
+wget -q --no-check-certificate https://yt-dl.org/downloads/latest/youtube-dl
+sudo chmod a+rx youtube-dl
+sudo apt-get install default-jre -y
+sudo apt-get install openjdk-7-jre -y
+sudo update-ca-certificates -y
+sudo apt-get install lib32stdc++6 -y
+sudo apt-get install lib32z1 -y
+sudo apt-get install lib32ncursesw5 -y
+wget -q --no-check-certificate http://ftp.us.debian.org/debian/pool/main/r/readline5/libreadline5_5.2-7_ia64.deb
+dpkg -i libreadline5_5.2-7_ia64.deb
+rm libreadline5_5.2-7_ia64.deb
+apt-get install unzip -y
+cd /opt
+mkdir sinusbot
+cd /opt/sinusbot
+mkdir ts3client
+cd /opt/sinusbot/ts3client
+wget -q --no-check-certificate https://$server/script/sinusbot/TeamSpeak3-Client-linux_amd64-3.1.10.run
+echo -e "\033[1;32mİlk olarak \033[1;34mENTER \033[1;32mbasın \033[1;34mQ \033[1;32mbasın \033[1;34mY \033[1;32mbasın \033[1;34mENTER \033[1;32mbasın \033[0m" 
+cd /opt/sinusbot/ts3client
+chmod +x *
+./TeamSpeak3-Client-linux_amd64-3.1.10.run
+cd /usr/local/bin
+mkdir temelbilesen-installed        
+ else
+    temelbilesen_sorun
+ fi
+echo -e "Temel bileşen kurulumu tamamlandı."
+
+
+}
+function ana_secenek_audiobot(){
+clear
+
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                \033[1;35mAudioBot - Seçenekler\033[0m                \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mBaşlat                                           \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mDurdur                                           \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mSil                                              \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m4\033[1;37m) \033[1;36mİsim Değiştir                                    \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read audiosec
+
+case $audiosec in
+ 1)
+ana_secenek_audiobot_baslat
+ ;;
+ 2)
+ana_secenek_audiobot_durdur 
+ ;;
+ 3)
+ana_secenek_audiobot_sil
+ ;;
+ 4)
+ana_secenek_audiobot_name
+ ;;
+ 0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+function ana_secenek_audiobot_baslat(){
+clear
+cd /opt
+rm -rf bportlaraudio.txt
+touch /opt/bportlaraudio.txt
+echo -e -n "\e[1;36mBaşlatmak İstediğiniz Botların İsmini Girin\e[0m: "
+read -a audio1
+case $audio1 in
+0)
+  ana_menu
+  exit
+  ;;
+esac
+for audio1 in ${audio1[@]}
+do
+echo $audio1 >> /opt/bportlaraudio.txt
+audioname1=$audio1
+if [ -d "/opt/audiobot/audio$audioname1" ]
+then
+cd /opt/audiobot/audio$audioname1
+screen -AmdS $audioname1 mono TS3AudioBot.exe
+echo -e "\033[1;37m(\033[1;34m$audioname1\033[1;37m) Botu başarıyla başlatıldı.\033[0m"
+else
+echo -e "\033[1;37m(\033[1;34m$audioname1\033[1;37m) Botu kurulu değil.\033[0m"
+fi
+done < "/opt/bportlaraudio.txt"
+rm -rf /opt/bportlaraudio.txt
+sleep 2
+echo -e "\033[0;32mAna menüye dönmek için enter'a basın"
+read enterbom
+case $enterbom in
+  *)
+  ana_menu
+  ;;
+esac
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+function ana_secenek_audiobot_durdur(){
+clear
+cd /opt
+rm -rf dportlaraudio.txt
+touch /opt/dportlaraudio.txt
+echo -e -n "\e[1;36mDurdurmak İstediğiniz Botların İsmini Girin\e[0m: "
+read -a audio2
+case $audio2 in
+0)
+  ana_menu
+  exit
+  ;;
+esac
+for audio2 in ${audio2[@]}
+do
+echo $audio2 >> /opt/dportlaraudio.txt
+audioname2=$audio2
+if [ -d "/opt/audiobot/audio$audioname2" ]
+then
+cd /opt/audiobot/audio$audioname2
+screen -X -S $audioname2 quit
+echo -e "\033[1;37m(\033[1;34m$audioname2\033[1;37m) Botu başarıyla durduruldu.\033[0m"
+else
+echo -e "\033[1;37m(\033[1;34m$audioname2\033[1;37m) Botu kurulu değil.\033[0m"
+fi
+done < "/opt/dportlaraudio.txt"
+rm -rf /opt/dportlaraudio.txt
+sleep 2
+echo -e "\033[0;32mAna menüye dönmek için enter'a basın"
+read enterbom
+case $enterbom in
+  *)
+  ana_menu
+  ;;
+esac
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+function ana_secenek_audiobot_sil(){
+clear
+cd /opt
+rm -rf sportlaraudio.txt
+touch /opt/sportlaraudio.txt
+echo -e -n "\e[1;36mSilmek İstediğiniz Botların İsmini Girin\e[0m: "
+read -a audio3
+case $audio3 in
+0)
+  ana_menu
+  exit
+  ;;
+esac
+for audio3 in ${audio3[@]}
+do
+echo $audio3 >> /opt/sportlaraudio.txt
+audioname3=$audio3
+if [ -d "/opt/audiobot/audio$audioname3" ]
+then
+cd /opt/audiobot/audio$audioname3
+screen -X -S $audioname3 quit
+cd /opt/audiobot
+sudo rm -r audio$audioname3
+echo -e "\033[1;37m(\033[1;34m$audioname3\033[1;37m) Botu başarıyla silindi.\033[0m"
+else
+echo -e "\033[1;37m(\033[1;34m$audioname3\033[1;37m) Botu kurulu değil.\033[0m"
+fi
+done < "/opt/sportlaraudio.txt"
+rm -rf /opt/sportlaraudio.txt
+sleep 2
+echo -e "\033[0;32mAna menüye dönmek için enter'a basın"
+read enterbom
+case $enterbom in
+  *)
+  ana_menu
+  ;;
+esac
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+function ana_secenek_audiobot_name(){
+clear
+cd /opt
+rm -rf nportlaraudio.txt
+touch /opt/nportlaraudio.txt
+echo -e -n "\e[1;36mEski Bot İsmini Girin\e[0m: "
+read -a audio4
+echo -e -n "\e[1;36mYeni Bot İsmini Girin\e[0m: "
+read -a audio44
+case $audio4 in
+0)
+  ana_menu
+  exit
+  ;;
+esac
+for audio4 in ${audio4[@]}
+do
+echo $audio4 >> /opt/nportlaraudio.txt
+audioname4=$audio4
+if [ -d "/opt/audiobot/audio$audioname4" ]
+then
+cd /opt/audiobot/audio$audioname4
+screen -X -S $audioname4 quit
+cd /opt/audiobot/audio$audioname4/Bots
+nohup sed -i "s@$audio4@$audio44@" bot_default.toml
+echo -e "\033[1;37m(\033[1;34m$audioname4\033[1;37m) Botun İsmi Başarıyla Değiştirildi.\033[0m"
+echo -e "\033[1;37m(\033[1;34m$audioname4\033[1;37m) Bot Yeniden Başlatılıyor.\033[0m"
+sleep 0.5
+mv /opt/audiobot/audio$audioname4 /opt/audiobot/audio$audio44
+cd /opt/audiobot/audio$audio44
+screen -AmdS $audio44 mono TS3AudioBot.exe
+clear
+echo -e "\033[1;37m(\033[1;34m$audioname4/$audio44\033[1;37m) Botu Başlatıldı.Yaklaş��k 30 saniye içinde Yeni İsmi İle Ts3'e Bağlanacaktır\033[0m"
+else
+echo -e "\033[1;37m(\033[1;34m$audioname4\033[1;37m) Botu kurulu değil.\033[0m"
+fi
+done < "/opt/nportlaraudio.txt"
+rm -rf /opt/nportlaraudio.txt
+sleep 2
+echo -e "\033[0;32mAna menüye dönmek için enter'a basın"
+read enterbom
+case $enterbom in
+  *)
+  ana_menu
+  ;;
+esac
+}
+function ana_kurulum_audiobot(){
+clear
+if [ ! -d "/opt/audiobot/audiocopy" ] 
+then
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#       \033[1;33mGerekli Dosyaların Yüklü Olmadığı Tespit Edildi.     \033[0m     \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                      \033[1;31mDosyalar Yükleniyor.                       \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 3
+mkdir /opt/audiobot
+cd /opt/audiobot
+mkdir audiocopy
+cd audiocopy
+wget -q --no-check-certificate https://$server/script/audio/audio.zip
+unzip audio.zip
+rm -rf audio.zip
+clear
+echo -e "\033[1;32mGerekli Dosyalar İndirildi Kurulum Tekrar Açılıyor.\033[0m"
+sleep 1
+ana_kurulum_audiobot
+exit
+fi
+if [ ! -d "/usr/local/bin/temelbilesen-installed_audio" ] 
+then
+temelbilesen_audio
+exit
+fi
+echo -e -n "\033[1;36mİsim Girin: \033[0m"
+read audiobotname
+sleep 0.5
+if [ -d "/opt/audiobot/audio$audiobotname" ] 
+then
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#          \033[1;33mYazdığınız bot ismi kurulmuş gözüküyor.        \033[0m        \033[1;33m# \033[0m"
+echo -e "\033[1;33m#          \033[1;31mBaşka bir bot ismi ile kurmayı deneyin.                \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+exit
+fi
+sleep 0.5
+clear
+echo -e "\033[1;35mNOT: \033[1;33mBotu Kullanacağınız Ts3 Adresi."
+echo -e -n "\033[1;36mTeamspeak 3 Adresi Girin: \033[0m"
+read audioip
+sleep 0.5
+echo -e -n "\033[1;36mTeamspeak 3 Portu Girin: \033[0m"
+read audioport
+sleep 0.5
+echo -e -n "\033[1;36mSes Kalitesi (32-128): \033[0m"
+read audioses
+sleep 0.5
+echo -e -n "\033[1;36mYetkili Unique İD Girin: \033[0m"
+read audioid
+sleep 0.5
+echo -e -n "\033[1;36mYetki İD Girin (Botu Kullanmasını İstediğiniz Yetkinin İD'si): \033[0m"
+read audioyid
+sleep 0.5
+clear
+echo -e "\033[1;33mGerekli klasörler oluşturuluyor...\033[0m"
+cd /opt/audiobot
+cp -r audiocopy audio$audiobotname
+echo -e "\033[1;32mGerekli klasörler oluşturuldu.\033[0m"
+sleep 0.5
+echo -e "\033[1;32mGerekli dosyaları indirildi.\033[0m"
+sleep 0.5
+echo -e "\033[1;33mDosyalar düzenleniyor...\033[0m"
+cd /opt/audiobot/audio$audiobotname/Bots
+nohup sed -i "s@botname@$audiobotname@" bot_default.toml
+nohup sed -i "s@ts3ip@$audioip@" bot_default.toml
+nohup sed -i "s@ts3port@$audioport@" bot_default.toml
+nohup sed -i "s@ses@$audioses@" bot_default.toml
+cd /opt/audiobot/audio$audiobotname
+nohup sed -i "s@auidoid@$audioid@" rights.toml
+nohup sed -i "s@audioyid@$audioyid@" rights.toml
+clear
+echo -e "\033[1;32mDosyalar düzenlendi.\033[0m"
+sleep 1
+cd /opt/audiobot/audio$audiobotname
+screen -AmdS $audiobotname mono TS3AudioBot.exe
+clear
+echo -e "\033[1;32mBot kurulumu tamamlandı, ortalama 5 saniye içinde sunucunuza giriş yapacaktır !youtube müzik ismi yaparak müzik açabilirsiniz.\033[0m"
+}
+
+function ana_kurulum_jt3servermod(){
+clear
+echo -e "\033[1;35mNOT: \033[1;33mHer TeamSpeak3 Sunucusuna 1 adet JTS3ServerMod Botu Girebilir."
+echo -e -n "\033[1;36mTeamSpeak3 Server Port (Örnek: 9987, 9988): \033[0m"
+read botport
+sleep 0.5
+if [ -d "/opt/jts3servermod/bot$botport" ] 
+then
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#          \033[1;33mYazdığınız port şuanda kurulmuş gözüküyor.     \033[0m        \033[1;33m# \033[0m"
+echo -e "\033[1;33m#               \033[1;31mBaşka bir port kurmayı deneyin.                   \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+exit
+fi
+sleep 0.5
+clear
+echo -e "\033[1;35mNOT: \033[1;33mLocalde kullanacaksanız adresi '127.0.0.1' olarak girin."
+echo -e -n "\033[1;36mTs3 IP Adresi: \033[0m"
+read botip
+sleep 0.5
+echo -e -n "\033[1;36mYatqa ServerQuery Şifresi: \033[0m"
+read botpassquery
+sleep 0.5
+echo -e -n "\033[1;36mYatqa Query Port(Varsayılan: 10011): \033[0m"
+read botqueryport
+sleep 0.5
+echo -e -n "\033[1;36mBotun adı: \033[0m"
+read botname
+sleep 0.5
+echo -e -n "\033[1;36mBotun 2. adı: \033[0m"
+read botname2
+sleep 0.5
+echo -e -n "\033[1;36mYetkili Unique ID: \033[0m"
+read botuniqueid
+clear
+sleep 0.5
+echo -e "\033[1;33mGerekli klasörler oluşturuluyor...\033[0m"
+mkdir /opt/jts3servermod
+cd /opt/jts3servermod
+echo -e "\033[1;32mGerekli klasörler oluşturuldu.\033[0m"
+sleep 0.5
+echo -e "\033[1;33mBot dosyaları indiriliyor...\033[0m"
+cd /opt/jts3servermod/ 
+mkdir bot$botport
+cd bot$botport
+wget -q --no-check-certificate https://$server/script/jts3/bot.zip
+unzip bot.zip
+rm -rf bot.zip
+echo -e "\033[1;32mBot dosyaları indirildi.\033[0m"
+sleep 0.5
+echo -e "\033[1;33mDosyalar düzenleniyor...\033[0m"
+cd /opt/jts3servermod/bot$botport/config
+nohup sed -i "s@ts3querypass@$botpassquery@" JTS3ServerMod_server.cfg
+nohup sed -i "s@BOTADMIN@$botuniqueid@" JTS3ServerMod_InstanceManager.cfg
+nohup sed -i "s@ts3address@$botip@" JTS3ServerMod_server.cfg
+nohup sed -i "s@ts3query@$botqueryport@" JTS3ServerMod_server.cfg
+nohup sed -i "s@ts3port@$botport@" JTS3ServerMod_server.cfg
+nohup sed -i "s@BOTADI@$botname@" JTS3ServerMod_server.cfg
+nohup sed -i "s@BOTADI2@$botname2@" JTS3ServerMod_server.cfg
+mv JTS3ServerMod_server.cfg server1
+echo -e "\033[1;32mDosyalar düzenlendi.\033[0m"
+sleep 0.5
+cd /opt/jts3servermod/bot$botport/
+screen -d -m -S bot$botport java -mx30M -jar JTS3ServerMod.jar
+clear
+echo -e "\033[1;32mBot kurulumu tamamlandı,  sunucu sohbetinden !botinfo yazarak bota ulaşabilirsiniz.\033[0m"
+}
+
+function ana_kurulum_teamspeak3_hostduzenle(){
+sudo echo "#Patch TS3Crack by zeuskurulum
+#zeuskurulum.tk
+127.0.0.1 accounting.teamspeak.com
+127.0.0.1 backupaccounting.teamspeak.com
+127.0.0.1 ipcheck.teamspeak.com
+127.0.0.1 weblist.teamspeak.com
+127.0.0.1 thawte.com
+127.0.0.1 symcb.com
+127.0.0.1 usertrust.com
+127.0.0.1 elasticbeanstalk.com
+127.0.0.1 reportpiracy-env.elasticbeanstalk.com
+127.0.0.1 hardy.teamspeak.4players.de
+127.0.0.1 ocsp.digicert.com
+# 127.0.0.1 blacklist.teamspeak.com
+127.0.0.1  teamspeak.com
+
+" >> /etc/hosts;
+sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"
+}
+
+function ana_kurulum_teamspeak3yenisg(){
+if [ ! -d "/root/server" ] 
+then
+clear
+echo -n -e "\033[1;33mTeamSpeak3 3.8.0 sunucusu kurulacak Emin misin? \033[1;37m(\033[1;31my/n\033[1;37m): \033[0m"
+read RESP
+if [ "$RESP" = "y" ]; then
+sleep 0.5
+echo -e "\033[1;33mServer dosyaları indiriliyor...\033[0m"
+sleep 0.1
+ana_kurulum_teamspeak3_hostduzenle
+sleep 0.1
+cd /root
+wget -q --no-check-certificate https://$server/script/ts3/teamspeak3-server_linux_ggsurum.zip
+sleep 0.1
+unzip teamspeak3-server_linux_ggsurum.zip
+sleep 0.1
+sudo rm -r teamspeak3-server_linux_ggsurum.zip
+echo -e "\033[1;32mServer dosyaları indirildi.\033[0m"
+sleep 0.5
+mv teamspeak3-server_linux_ggsurum server
+sleep 0.1
+chmod +x *
+sleep 0.1
+cd /root/server
+chmod 777 ts3server
+chmod 777 ts3server_minimal_runscript.sh 
+chmod 777 ts3server_startscript.sh
+sleep 0.1
+touch .ts3server_license_accepted
+sleep 0.5
+./ts3server_startscript.sh start createinifile=1    
+exit
+sleep 0.5
+else
+ana_kurulum
+fi
+else
+clear
+echo -e "\033[1;33mTeamSpeak3 sunucusu zaten kurulu!\033[0m"
+sleep 2
+fi
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+function ana_kurulum_teamspeak3yenis(){
+if [ ! -d "/root/server" ] 
+then
+clear
+echo -n -e "\033[1;33mTeamSpeak3 3.5.1 sunucusu kurulacak Emin misin? \033[1;37m(\033[1;31my/n\033[1;37m): \033[0m"
+read RESP
+if [ "$RESP" = "y" ]; then
+sleep 0.5
+echo -e "\033[1;33mServer dosyaları indiriliyor...\033[0m"
+sleep 0.1
+ana_kurulum_teamspeak3_hostduzenle
+sleep 0.1
+cd /root
+wget -q --no-check-certificate https://$server/script/ts3/teamspeak3-server_linux_gsurum.zip
+sleep 0.1
+unzip teamspeak3-server_linux_gsurum.zip
+sleep 0.1
+sudo rm -r teamspeak3-server_linux_gsurum.zip
+echo -e "\033[1;32mServer dosyaları indirildi.\033[0m"
+sleep 0.5
+mv teamspeak3-server_linux_gsurum server
+sleep 0.1
+chmod +x *
+sleep 0.1
+cd /root/server
+chmod 777 ts3server
+chmod 777 ts3server_minimal_runscript.sh 
+chmod 777 ts3server_startscript.sh
+sleep 0.1
+touch .ts3server_license_accepted
+sleep 0.5
+./ts3server_startscript.sh start createinifile=1    
+exit
+sleep 0.5
+else
+ana_kurulum
+fi
+else
+clear
+echo -e "\033[1;33mTeamSpeak3 sunucusu zaten kurulu!\033[0m"
+sleep 2
+fi
+}
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+function ana_kurulum_teamspeak3eskis(){
+if [ ! -d "/root/server" ] 
+then
+clear
+echo -n -e "\033[1;33mTeamSpeak3 3.0.13.8 sunucusu kurulacak Emin misin? \033[1;37m(\033[1;31my/n\033[1;37m): \033[0m"
+read RESP
+if [ "$RESP" = "y" ]; then
+sleep 0.5
+echo -e "\033[1;33mServer dosyaları indiriliyor...\033[0m"
+sleep 0.1
+ana_kurulum_teamspeak3_hostduzenle
+sleep 0.1
+cd /root
+wget -q --no-check-certificate https://$server/script/ts3/teamspeak3-linux64.zip
+sleep 0.1
+unzip teamspeak3-linux64.zip
+sleep 0.1
+sudo rm -r teamspeak3-linux64.zip
+echo -e "\033[1;32mServer dosyaları indirildi.\033[0m"
+sleep 0.5
+mv teamspeak3-linux64 server
+sleep 0.1
+chmod +x *
+sleep 0.1
+cd /root/server
+chmod 777 AccountingServerEmulator-Linux
+chmod 777 ts3server
+chmod 777 ts3server_minimal_runscript.sh 
+chmod 777 ts3server_startscript.sh
+sleep 0.1
+./AccountingServerEmulator-Linux
+sleep 0.1
+./ts3server_startscript.sh start
+exit
+sleep 0.5
+else
+ana_kurulum
+fi
+else
+clear
+echo -e "\033[1;33mTeamSpeak3 sunucusu zaten kurulu!\033[0m"
+sleep 2
+fi
+}
+
+#--------------------------------------------------------------------------#
+
+function ana_kurulum_teamspeak3(){
+clear
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                       \033[1;35mKurulum\033[0m                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mTeamSpeak3 Orjinal\033[0m\033[1;37m - \033[1;33m$ggssurum\033[0m                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mTeamSpeak3 Orjinal\033[0m\033[1;37m - \033[1;33m$gssurum\033[0m                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mTeamSpeak3 Crack\033[0m\033[1;37m - \033[1;33m$tssurum\033[0m                      \033[0;32m#\033[0m"
+#echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mTeaSpeak\033[0m\033[1;37m - \033[1;33m$ttssurum\033[0m                            \033[0;32m#\033[0m"#
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m\033[1;37m 3.8.0 Sürümünde Yatqa Desteği Yoktur!               \033[0;32m#\033[0m\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read kursec
+case $kursec in
+ 1)
+ana_kurulum_teamspeak3yenisg
+ ;;
+ 2)
+ana_kurulum_teamspeak3yenis
+ ;;
+ 3)
+ana_kurulum_teamspeak3eskis
+ ;;
+0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+
+}
+#--------------------------------------------------------------------------#
+
+function kapat(){
+  clear&&clear
+echo -e "\033[1;36m---------------------------------------"
+echo -e "--> Çıkış Yapıldı -  "$scname" <--"
+echo -e "---------------------------------------"
+  exit
+}
+
+ana_hatacoz_audiobot(){
+clear
+
+
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                 \033[1;35mAudioBot - Hatalar\033[0m                  \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mYoutube-DL Sorunu                                \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read hatacezaud
+case $hatacezaud in
+ 1)
+rm -rf /usr/local/bin/youtube-dl
+cd /usr/local/bin
+wget https://yt-dl.org/downloads/latest/youtube-dl
+sudo chmod a+rx youtube-dl
+clear
+echo -e "\033[1;37mBütün botların youtube-dl sorunu giderildi.\033[0m"
+ ;;
+0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+
+}
+
+ana_hatacoz(){
+clear
+
+
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m               \033[1;35mScript Hata Çözümleri\033[0m                 \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mTeamSpeak3                                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mSinusBot                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mAudioBot                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read hatacez
+case $hatacez in
+ 1)
+ana_hatacoz_teamspeak3
+ ;;
+ 2)
+ana_hatacoz_sinusbot
+ ;;
+ 3)
+ana_hatacoz_audiobot
+ ;;
+0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+}
+#--------------------------------------------------------------------------#
+ana_secenek(){
+clear
+
+  echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                   \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                        \033[1;35mYönet\033[0m                        \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mTeamSpeak3                                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mSinusBot                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mJTS3ServerMod                                    \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m4\033[1;37m) \033[1;36mAudioBot                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read secsec
+
+case $secsec in
+ 1)
+ana_secenek_teamspeak3
+ ;;
+ 2)
+ana_secenek_sinusbot
+ ;;
+ 3)
+ana_secenek_jt3servermod
+;;
+ 4)
+ana_secenek_audiobot
+;;
+ 0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+
+}
+function ana_kurulum() {
+clear
+
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                    \033[1;35mVersion: v$gsurum\033[0m                  \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                       \033[1;35mKurulum\033[0m                       \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#                   ||Seçenekler||                    #\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m1\033[1;37m) \033[1;36mTeamSpeak3 Server - \033[1;33m$ggssurum - $gssurum - $tssurum\033[0m     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m2\033[1;37m) \033[1;36mSinusBot\033[0m - \033[1;33m$sinusbotsurum\033[0m                                 \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m3\033[1;37m) \033[1;36mJTS3ServerMod\033[0m - \033[1;33m$jts3surum\033[0m                            \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m4\033[1;37m) \033[1;36mAudioBot Müzik Botu\033[0m - \033[1;33m$audiosurum\033[0m                      \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m \033[1;37m\033[1;31m0\033[1;37m) \033[1;36mAna Menü\033[0m                                         \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e ""
+echo -n -e "\033[1;37mCevap: \033[0m"
+read kursec
+case $kursec in
+ 1)
+ana_kurulum_teamspeak3
+ ;;
+ 2)
+ana_kurulum_sinusbot
+ ;;
+ 3)
+ana_kurulum_jt3servermod
+;;
+4)
+ana_kurulum_audiobot
+;;
+0)
+ana_menu
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+ana_menu
+;;
+esac
+}
+
+#--------------------------------------------------------------------------#,
+
+function ana_menu() {
+clear
+	echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+	echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+	echo -e "\033[1;33m#                    \033[1;33m"$scname"			    \033[0m      \033[1;33m# \033[0m"
+	echo "1) Kurulum"
+	echo "2) Temel Bileşenleri Yükle"
+	echo "3) Secenekler"
+	echo "4) Sorun Gider"
+	echo "0) ÇIKIŞ"
+	echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+	echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+	echo -n -e "\033[1;37mCevap: \033[0m"
+read menu_cevap
+case $menu_cevap in
+ 1)
+ ana_kurulum
+ ;;
+ 2)
+ana_temelbilesen
+ ;;
+ 3)
+ana_secenek
+;;
+ 4)
+ana_hatacoz
+;;
+0)
+kapat
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+menu
+;;
+esac
+}
+
+#--------------------------------------------------------------------------#
+
+function online(){
+clear
+echo -e "\033[1;36m╔══════════════════════════════════════════════════════════╗\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠═══════════════> Bismillahirrahmanirrahim <═══════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>                      Sürüm : v1.0                      <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>               Site : www.zeuskurulum.tk                <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>                      GAMEDC.NET                        <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠> Güncellemeler Kontrol Ediliyor                         <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 2s
+if curl -N -4 -s --head --request POST http://zeuskurulum.tk | grep "200 OK" > /dev/null; 
+then
+tamam="1"
+else
+echo -e $main_server_connectionlost
+sleep 2
+./zeuskurulum
+exit
+fi
+
+
+sleep 0.5s
+echo -e "\033[1;36m╠> Sunucu Bağlantısı Başarılı                             <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+
+
+if [ "$(id -u)" != "0" ]; then
+echo -e "\033[1;33m╠> Root Olarak Başlatılamadı Lütfen 'sudo su' komutuyla Başlatınız<╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+   exit 1
+fi
+
+
+if curl -s https://zeuskurulum.tk/script/surumkontrol/guncel.php | grep "12.3"
+then
+clear
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                     \033[1;31m$scname\033[0m                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m                \033[1;37mwww.zeuskurulum.tk\033[0m                \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                \033[1;35m! Güncelleme Mevcut !\033[0m                \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m#\033[0m                                                     \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m     \033[1;31mYeni Bir Güncelleme Mevcut\033[0m                      \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m     \033[1;37mGüncellemeler Otomatik Yüklenir                 \033[0;32m#\033[0m"
+echo -e "\033[0;32m#\033[0m     \033[1;37m5 Saniye İçinde Güncelleme Başlayacaktır        \033[0;32m#\033[0m"
+echo -e "\033[0;32m#######################################################\033[0m"
+echo -e "\033[0;32m-------------------------------------------------------\033[0m"
+sleep 5
+sudo rm -r zeuskurulum
+wget -q --no-check-certificate https://zeuskurulum.tk/scdosya/zeuskurulum
+chmod 777 zeuskurulum
+./zeuskurulum
+exit 1 ./zeuskurulum
+else
+echo -e "\033[1;33m╠> Güncel Sürüm Kullanıyorsunuz.                          <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╚══════════════════════════════════════════════════════════╝\033[1;32m \033[0m"
+sleep 0.5s
+ana_menu
+fi
+}
+function offline(){
+clear
+echo -e "\033[1;36m╔══════════════════════════════════════════════════════════╗\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠═══════════════> Bismillahirrahmanirrahim <═══════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>                      Sürüm : v1.0                      <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>               Site : www.zeuskurulum.tk                <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠>                      GAMEDC.NET                        <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠> Güncellemeler Kontrol Edilemiyor                       <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╠══════════════════════════════════════════════════════════╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;31m╠> Script Cevrim Dışı Olarak Çalıştırılıyor               <╣\033[1;32m \033[0m"
+sleep 0.5s
+echo -e "\033[1;36m╚══════════════════════════════════════════════════════════╝\033[1;32m \033[0m"
+sleep 0.5s
+ana_menu
+}
+function kontrol() {
+clear
+	echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+	echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+	echo -e "\033[1;33m#                    \033[1;33m"$scname"			    \033[0m      \033[1;33m# \033[0m"
+	echo "1) Online (Güncelleme Sorgular)"
+	echo "2) Offline (Güncelleme İstemiyorsaniz Seciniz)"
+	echo "0) ÇIKIŞ"
+	echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+	echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+	echo -n -e "\033[1;37mCevap: \033[0m"
+read menu_cevap
+case $menu_cevap in
+ 1)
+ online
+ ;;
+ 2)
+offline
+;;
+0)
+kapat
+ ;;
+*)
+clear
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;32m \033[0m"
+echo -e "\033[1;33m#                    \033[1;33mYanlış tuşlama yapıldı                 \033[0m      \033[1;33m# \033[0m"
+echo -e "\033[1;33m#                \033[1;31mAna Menüye Yönlendiriliyorsunuz                  \033[0m\033[1;33m# \033[0m"
+echo -e "\033[1;33m#                                                                 #\033[1;33m \033[0m"
+echo -e "\033[1;33m###################################################################\033[1;32m \033[0m"
+sleep 2
+menu
+;;
+esac
+}
+#--------------------------------------------------------------------------#
+kontrol
